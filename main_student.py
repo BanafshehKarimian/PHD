@@ -187,9 +187,9 @@ def get_loss(outputs, labels, out, pos_weight=None, alpha_f = 0.1, alpha_l = 0.1
 
     # mask out Unknowns and normalize by #known labels
     loss = (per_elem * label_mask).sum() / label_mask.sum().clamp(min=1.0)
-    #mse_loss = history_impute_loss(out['pred'], out['true'], out['mask'])
+    mse_loss = history_impute_loss(out['pred'], out['true'], out['mask'])
     #print(mse_loss)
-    #loss += alpha_f*mse_loss
+    loss += alpha_f*mse_loss
     k = 4
     loss += alpha_l * kd_bce_binary(
         student_logits=out["logits"]["pred"][:, k],
