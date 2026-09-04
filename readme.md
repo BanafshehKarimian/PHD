@@ -1,4 +1,4 @@
-# Privileged History Distillation for Mammography Risk Prediction (Code)
+# Single-Exam Mammography Risk Prediction with Privileged History Distillation (Code)
 
 This repository contains training code for:
 - **Base longitudinal models** and **horizon-specific teachers** (trained with full history as privileged information).
