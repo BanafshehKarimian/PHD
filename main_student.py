@@ -370,7 +370,7 @@ def evalute(model, test_dataset, test_loader, config, fpr = None):
                 batch = to_device(batch, device)
                 labels.append(batch['label'])
                 # Model outputs: expected [B, K].
-                outputs.append(model(batch)[0].cpu().detach())
+                outputs.append(model(batch, test=True)[0].cpu().detach())
         outputs = torch.cat(outputs, dim = 0)
         labels = torch.cat(labels, dim = 0)
         # Collect results per pseudo split/group.
