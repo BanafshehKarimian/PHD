@@ -114,13 +114,18 @@ class VMRAMasked(nn.Module):
 
 
 
-    def forward(self, batch, visit_key = 'visit_embeddings', mask_key = 'visit_mask'):
+    def forward(self, batch, visit_key = 'visit_embeddings', mask_key = 'visit_mask', test = False):
         # Expected batch fields:
         #   - visit_embeddings: [B, n_visits, embedding_dim]
         #   - visit_mask: [B, n_visits]
 
         orig = batch["original_visit_embeddings"].to(self.torch_device).float()  # [B,5,D]
         mask = batch["original_visit_mask"].to(self.torch_device).float()  # [B,5]
+        if test:
+            mask[:,0] = mask[:,-1] 
+            mask[:,1] = mask[:,-1] 
+            mask[:,2] = mask[:,-1] 
+            mask[:,3] = mask[:,-1] 
         with torch.no_grad():
             risk_prediction_logits_, complete_history_embedding_ = [], []
             for teacher in self.teacher_branch:
