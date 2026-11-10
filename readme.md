@@ -49,3 +49,26 @@ Use `main.py` to train:
 Example:
 ```bash
 python main.py --config <YOUR_CONFIG> [other args...]
+
+### Split-Specific LoMaR Hyperparameters
+
+For reproducibility, we report the LoMaR backbone hyperparameters used for each of the 10 patient-level splits on CSAW-CC, EMBED, and OMI-DB.
+
+The model embedding dimension (`d_model`) and number of attention heads (`n_heads`) were selected using the validation set of each split. The selected backbone configuration was kept fixed when training the corresponding LoMaR+SEM-HD model, allowing comparisons under the same backbone hyperparameters.
+
+The split indices (`0`–`9`) correspond to the split identifiers used in the experimental scripts.
+
+| Split | CSAW-CC `d_model` | CSAW-CC `n_heads` | EMBED `d_model` | EMBED `n_heads` | OMI-DB `d_model` | OMI-DB `n_heads` |
+|---|---|---|---|---|---|---|
+| 0 | 256 | 4 | 512 | 1 | 256 | 8 |
+| 1 | 128 | 1 | 256 | 1 | 128 | 8 |
+| 2 | 128 | 8 | 512 | 1 | 128 | 8 |
+| 3 | 256 | 8 | 256 | 4 | 256 | 4 |
+| 4 | 128 | 1 | 128 | 4 | 256 | 4 |
+| 5 | 256 | 1 | 256 | 4 | 256 | 1 |
+| 6 | 128 | 8 | 128 | 8 | 256 | 4 |
+| 7 | 128 | 1 | 512 | 8 | 512 | 8 |
+| 8 | 128 | 1 | 128 | 8 | 128 | 4 |
+| 9 | 256 | 8 | 512 | 8 | 128 | 8 |
+
+All other training settings follow those described in Section 4.1 and Appendix A.10 of the paper. For SEM-HD, the backbone hyperparameters were not retuned; only the method-specific distillation weight and temperature were selected using validation performance.
