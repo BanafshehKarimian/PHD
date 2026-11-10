@@ -45,11 +45,6 @@ https://github.com/yala/Mirai
 Use `main.py` to train:
 - A standard baseline model, and/or
 - Horizon-specific teacher branches that use **full screening history** during training.
-
-Example:
-```bash
-python main.py --config <YOUR_CONFIG> [other args...] ```
-
 ### Split-Specific LoMaR Hyperparameters
 
 For reproducibility, we report the LoMaR backbone hyperparameters used for each of the 10 patient-level splits on CSAW-CC, EMBED, and OMI-DB.
@@ -72,3 +67,8 @@ The split indices (`0`–`9`) correspond to the split identifiers used in the ex
 | 9 | 256 | 8 | 512 | 8 | 128 | 8 |
 
 All other training settings follow those described in Section 4.1 and Appendix A.10 of the paper. For SEM-HD, the backbone hyperparameters were not retuned; only the method-specific distillation weight and temperature were selected using validation performance.
+Example:
+```bash
+python main.py --config <YOUR_CONFIG> [other args...] ```
+
+
