@@ -69,6 +69,6 @@ The split indices (`0`–`9`) correspond to the split identifiers used in the ex
 All other training settings follow those described in Section 4.1 and Appendix A.10 of the paper. For SEM-HD, the backbone hyperparameters were not retuned; only the method-specific distillation weight and temperature were selected using validation performance.
 Example:
 ```bash
-python main.py --config <YOUR_CONFIG> [other args...] ```
+python main.py --config <YOUR_CONFIG> [other args...] 
 
 
