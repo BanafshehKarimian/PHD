@@ -48,7 +48,7 @@ Use `main.py` to train:
 
 Example:
 ```bash
-python main.py --config <YOUR_CONFIG> [other args...]
+python main.py --config <YOUR_CONFIG> [other args...] ```
 
 ### Split-Specific LoMaR Hyperparameters
 
